@@ -1,15 +1,23 @@
 @Library('my-share-library') _
 
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('git checkout'){
-            steps{  
-            gitCheckout(
-                branch: "main",
-                url: 'https://github.com/bdino2005/devops_java_app.git'
-            )
+    stages {
+        stage('git checkout') {
+            steps {
+                script {
+                    git(
+                        branch: 'main',
+                        url: 'https://github.com/bdino2005/devops_java_app.git'
+                    )
+                }
             }
         }
     }
 }
+
+
+
+
+
+
