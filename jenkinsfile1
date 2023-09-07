@@ -4,7 +4,10 @@ pipeline{
         stage('git checkout'){
             steps{
                 script{
-                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/bdino2005/devops_java_app.git'
+                   gitChechout(
+                     branch: main
+                     url: https://github.com/bdino2005/devops_java_app.git
+                   )
                 }
             }
         }
