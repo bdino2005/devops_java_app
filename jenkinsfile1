@@ -5,13 +5,10 @@ pipeline {
     agent any
 
     stages {
-        
+
         stage('git checkout') {
 
             steps {
-
-                script {
-
                     gitCheckout(
                         branch: 'main',
                         url: 'https://github.com/bdino2005/devops_java_app.git'
