@@ -8,8 +8,8 @@ pipeline {
             steps {
 
                 script {
-                    
-                    gitCheckout(
+
+                    checkout scm(
                         branch: 'main',
                         url: 'https://github.com/bdino2005/devops_java_app.git'
                     )
