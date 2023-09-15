@@ -29,6 +29,7 @@ pipeline {
 
                 script {
                     mvnTest()
+                     echo "Selected action: ${params.action}"
                 }
             }
         }
@@ -39,6 +40,7 @@ pipeline {
 
                 script {
                    mvnIntergrationTest()
+                    echo "Selected action: ${params.action}"
                 }
             }
         }
@@ -48,6 +50,7 @@ pipeline {
 
                 script {
                   statiCodeAnalysis()
+                   echo "Selected action: ${params.action}"
                 }
             }
         }
