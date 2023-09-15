@@ -1,16 +1,15 @@
 @Library('my-shared-library') _
 
 pipeline {
-
-    agent any
+     agent any
     parameters{
-        choice(name: 'action', choice: 'create/ndelete' description: 'choice create/destroy' )
+        choice(name: 'action', choice: 'create\ndelete' description: 'choice create/destroy' )
     }
 
-    stages {
-        when { expression { param.action == 'create'}
-        }
-        }
+    stages{
+        when { expression { param.action == 'create'}}
+        
+        
         stage('git checkout') {
 
             steps {
@@ -41,8 +40,9 @@ pipeline {
             }
         }
     }
-    stage('static code analysis') {
-        when { expression { param.action == 'create'}
+    
+      stage('static code analysis'){
+         when { expression { param.action == 'create'}
             steps {
 
                 script {
@@ -50,8 +50,14 @@ pipeline {
                 }
             }
         }
+      }
+        
+     
     }
+               
 }
+
+
 
 
 
