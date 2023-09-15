@@ -36,7 +36,17 @@ pipeline {
             steps {
 
                 script {
-                   mvnIntergrationTest  ()
+                   mvnIntergrationTest()
+                }
+            }
+        }
+    }
+    stage('static code analysis') {
+        when { expression { param.action == 'create'}
+            steps {
+
+                script {
+                  statiCodeAnalysis()
                 }
             }
         }
