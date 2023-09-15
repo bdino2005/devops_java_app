@@ -3,7 +3,7 @@
 pipeline {
      agent any
     parameters{
-        choice(name: 'action', choice: 'create\ndelete' description: 'choice create/destroy' )
+        choice(name: 'action', choice: 'create\ndelete' description: 'choose create/destroy')
     }
 
     stages{
@@ -40,7 +40,7 @@ pipeline {
             }
         }
     }
-    
+
       stage('static code analysis'){
          when { expression { param.action == 'create'}
             steps {
